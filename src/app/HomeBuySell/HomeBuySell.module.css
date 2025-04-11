@@ -1,0 +1,227 @@
+/* Modern Glass Card Styling */
+.landingPageCard {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 40px 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-width: 550px;
+  text-align: center;
+  margin: 0 auto;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(50px);
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.landingPageCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(28, 241, 21, 0.1) 50%,
+    transparent 100%
+  );
+  transform: rotate(45deg);
+  z-index: -1;
+  transition: all 0.6s ease;
+}
+
+.landingPageCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.landingPageCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.landingPageCard:hover::before {
+  animation: shine 1.5s ease infinite;
+}
+
+/* Title Styling */
+.landingPageTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #1cf115, #00b3b3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.4s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.landingPageTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #1cf115, #00b3b3);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.landingPageTitle:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Subtitle Styling */
+.landingPageSubtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.landingPageSubtitle::before {
+  content: '»';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.landingPageSubtitle:hover {
+  transform: translateX(10px);
+  color: #333;
+}
+
+.landingPageSubtitle:hover::before {
+  opacity: 1;
+  left: -15px;
+}
+
+/* Content Styling */
+.testimonialpValues {
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: left;
+  background: rgba(49, 48, 48, 0.8);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  margin-bottom: 25px;
+  color: #f1f1f1;
+  transition: all 0.4s ease;
+}
+
+.testimonialpValues:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+              0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.clickHereButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #22ff00, #1b00b3);
+  color: white;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(34, 255, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.clickHereButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.8s ease;
+}
+
+.clickHereButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(34, 255, 0, 0.4);
+}
+
+.clickHereButton:hover::before {
+  left: 100%;
+}
+
+/* Animations */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .landingPageCard {
+    max-width: 90%;
+    padding: 30px 20px;
+    height: auto;
+    backdrop-filter: blur(8px);
+  }
+
+  .landingPageTitle,
+  .landingPageSubtitle,
+  .testimonialpValues {
+    display: block;
+  }
+
+  .landingPageTitle {
+    font-size: 1.5rem;
+  }
+
+  .landingPageSubtitle {
+    font-size: 1rem;
+  }
+
+  .testimonialpValues {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  .clickHereButton {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}

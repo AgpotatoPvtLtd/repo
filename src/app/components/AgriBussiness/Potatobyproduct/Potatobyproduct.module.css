@@ -1,0 +1,356 @@
+/* Section styling */
+.byprogrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Default: 4 cards per row */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+  justify-items: center;
+}
+
+.backcard {
+  background-color: #001542;
+}
+
+/* Card styling */
+.byprocard {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.byprocard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Image styling */
+.byproimage {
+  width: 100%; /* Ensures the image takes the full width of the card */
+  height: 200px; /* Fixed height for consistent image size */
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+  border-bottom: 1px solid #ddd;
+}
+
+/* Content container */
+.byprocontent {
+  padding: 20px;
+}
+
+/* Title styling */
+.byprotitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #010101;
+}
+
+/* Description styling */
+.byprodescription {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* "Know More" link styling (Button-like) */
+.byproknowmorelink {
+  font-size: 1rem;
+  color: #04D939; /* Text color */
+  text-decoration: none;
+  padding: 10px 20px; /* Add padding to give it a button appearance */
+  border: 2px solid #04D939; /* Green border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: transparent; /* Transparent background */
+  display: inline-block; /* Make it behave like a button */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.byproknowmorelink:hover {
+  color: #fff; /* White text on hover */
+  background-color: #04D939; /* Green background on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Contact Button */
+.contactButton {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 15px 25px;
+  border: 2px solid #04D939;
+  background-color: transparent;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+  border-radius: 50px; /* Makes the button look like a pill */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.contactButton:hover {
+  background-color: #04D939;
+  color: white;
+}
+
+/* Page Container */
+.pageContainer {
+  padding: 20px;
+  padding-left: 190px;
+  padding-right: 190px;
+}
+
+/* Info Section */
+.infoSection {
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: normal;
+  color: black;
+  position: relative;
+  display: inline-block;
+}
+
+.boldText {
+  font-weight: bold;
+  color: black;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  width: 45%; /* Half underline */
+  border-bottom: 5px dotted brown;
+  bottom: -9px;
+  left: 0;
+}
+
+.description {
+  font-family: "Hanken Grotesk", sans-serif;
+  color: #666666;
+  margin: 15px 0px 25px;
+  padding-top: 20px;
+  font-size: 19px;
+  text-align: justify;
+  word-spacing: 5px;
+}
+
+/* Why Choose Section */
+.whyChooseSection {
+  background-color: #b0f5b0;
+  padding: 50px 20px;
+  margin: 50px 0;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(100px); /* Ensures it starts from below */
+  opacity: 0;
+}
+
+.whyChooseContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.whyChooseTitle {
+  font-size: 2.5rem;
+  color: #010101;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.whyChooseDescription {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: justify;
+  line-height: 1.6;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.whyChooseSection p {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 2s ease-out;
+  overflow: visible;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.heroTitle {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  animation: slideUp 1s ease-out;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .byprogrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row for mobile view */
+    gap: 15px; /* Reduced gap for better spacing on mobile */
+  }
+
+  .heroTitle {
+    font-size: 2rem; /* Smaller font size */
+    padding: 0 15px; /* Add padding for spacing */
+  }
+
+  .heroSection {
+    height: 50vh; /* Adjust height for mobile */
+    padding: 20px;
+  }
+
+  .productsGallery {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .productCard {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 1rem;
+  }
+
+  .contentTitle {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .contentDescription {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 10px 15px;
+    margin: 0;
+  }
+
+  .whyChooseTitle {
+    font-size: 1.8rem;
+  }
+
+  .whyChooseDescription {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+}
+/* Mobile view for smaller screens */
+@media (max-width: 480px) {
+
+  .title {
+    font-size: 28px;}
+  
+  .pageContainer {
+    padding: 20px;
+   
+  }
+  /* Adjust card content */
+  .byprotitle {
+    font-size: 1rem; /* Slightly smaller title */
+  }
+
+  .byprodescription {
+    font-size: 0.9rem; /* Smaller description text */
+  }
+
+  .byproknowmorelink {
+    font-size: 0.9rem; /* Reduce button font size */
+    padding: 8px 15px; /* Adjust button padding */
+  }
+
+  /* Hero section adjustments */
+  .heroSection {
+    height: 40vh; /* Smaller height for smaller screens */
+    padding: 10px;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem; /* Scale down the title */
+    line-height: 1.2; /* Adjust line height */
+  }
+
+  /* Content section adjustments */
+  .contentTitle {
+    font-size: 1.6rem; /* Smaller title font size */
+    padding: 0 10px; /* Add some padding for smaller screens */
+  }
+
+  .contentDescription {
+    font-size: 0.9rem; /* Adjust content font size */
+    line-height: 1.4; /* Better line spacing */
+    padding: 0 10px;
+  }
+
+  /* Why Choose Section */
+  .whyChooseTitle {
+    font-size: 1.6rem; /* Smaller title size */
+  }
+
+  .whyChooseDescription {
+    font-size: 0.9rem; /* Smaller text size */
+    padding: 0 10px; /* Add side padding for spacing */
+  }
+
+  /* General description */
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: justify;
+  }
+
+  /* Adjust buttons for small screens */
+  .contactButton {
+    font-size: 16px; /* Smaller button text */
+    padding: 10px 20px;
+    bottom: 20%; /* Adjust button position */
+  }
+
+  /* Hide large titles for smaller screens if necessary */
+  .largeTitle {
+    display: none; /* Optional: Hide larger titles */
+  }
+
+ 
+
+  
+}

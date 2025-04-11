@@ -1,0 +1,186 @@
+/* Stylish Gallery Section */
+.campus {
+  margin: 80px auto;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  animation: scroll 20s linear infinite;
+  gap: 12px;
+  flex-wrap: nowrap;
+  padding: 20px 0;
+  position: relative;
+}
+
+/* Gallery image styling with hover effects */
+.gallery img {
+  width: 24%;
+  height: 200px;
+  max-height: 200px;
+  border-radius: 14px;
+  object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  filter: brightness(0.95);
+  position: relative;
+  z-index: 1;
+}
+
+.gallery img:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  filter: brightness(1);
+  z-index: 2;
+}
+
+/* Gradient overlay for depth */
+.gallery::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, transparent 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.gallery::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Enhanced Know More Button */
+.knowMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #04D939, #001542);
+  color: #fff;
+  padding: 15px 40px;
+  margin-top: 40px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(4, 217, 57, 0.3);
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.knowMoreBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.8s ease;
+}
+
+.knowMoreBtn:hover {
+  background: linear-gradient(135deg, #001542, #04D939);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(4, 217, 57, 0.4);
+}
+
+.knowMoreBtn:hover::before {
+  left: 100%;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  .gallery {
+    animation: scroll 15s linear infinite;
+    gap: 10px;
+  }
+
+  .gallery img {
+    width: 40%;
+    max-height: 150px;
+  }
+
+  .knowMoreBtn {
+    padding: 12px 30px;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+
+  .gallery::before,
+  .gallery::after {
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    animation: scroll 12s linear infinite;
+  }
+
+  .gallery img {
+    width: 60%;
+    max-height: 120px;
+  }
+}
+
+/* Enhanced scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% + 100vw - 90%));
+  }
+}
+
+/* Floating particles for extra style */
+.particle {
+  position: absolute;
+  background: rgba(4, 217, 57, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Add this JavaScript to create particles */
+/*
+document.querySelectorAll('.campus').forEach(section => {
+  for (let i = 0; i < 15; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.width = `${Math.random() * 10 + 5}px`;
+    particle.style.height = particle.style.width;
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.animation = `float ${Math.random() * 10 + 5}s linear infinite ${Math.random() * 5}s`;
+    section.appendChild(particle);
+  }
+});
+*/
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+}
